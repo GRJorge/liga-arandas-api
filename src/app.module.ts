@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { env } from 'process';
 import { Connection } from 'mongoose';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { Connection } from 'mongoose';
         connection.on('connected', () => console.log('Database connected'));
       },
     }),
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
