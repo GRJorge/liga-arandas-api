@@ -5,10 +5,12 @@ export type AdminDocument = HydratedDocument<Admin>;
 
 @Schema({ timestamps: true, versionKey: false })
 export class Admin {
-  @Prop()
+  @Prop({ unique: true })
   email: string;
-  @Prop()
+
+  @Prop({ unique: true })
   username: string;
+
   @Prop()
   password: string;
 }
