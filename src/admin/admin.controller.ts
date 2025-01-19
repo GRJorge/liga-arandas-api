@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Patch, Post } from '@nestjs/common';
 import { CreateAdminDto } from './dto/createAdmin.dto';
 import { AdminService } from './admin.service';
 import { EditAdminDto } from './dto/editAdmin.dto';
@@ -11,7 +11,7 @@ export class AdminController {
   async create(@Body() admin: CreateAdminDto) {
     return this.adminService.createAdmin(admin);
   }
-  @Post('/edit')
+  @Patch('/edit')
   async edit(@Body() editAdmin: EditAdminDto) {
     return this.adminService.editAdmin(editAdmin);
   }
