@@ -13,6 +13,9 @@ export class Admin {
 
   @Prop()
   password: string;
+
+  @Prop()
+  super: boolean;
 }
 
 export const AdminSchema = SchemaFactory.createForClass(Admin);

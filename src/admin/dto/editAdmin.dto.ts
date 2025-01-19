@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class EditAdminDto {
   @IsString()
@@ -18,4 +18,8 @@ export class EditAdminDto {
   @MinLength(6)
   @IsOptional()
   password?: string;
+
+  @IsBoolean()
+  @IsOptional()
+  super?: boolean;
 }
