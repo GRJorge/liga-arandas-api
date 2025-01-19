@@ -36,4 +36,8 @@ export class AdminService {
     }
     return await this.adminModel.findByIdAndUpdate(editAdmin.id, editAdmin);
   }
+
+  async deleteAdmin(id: string): Promise<Admin> {
+    return await this.adminModel.findByIdAndDelete(id);
+  }
 }
