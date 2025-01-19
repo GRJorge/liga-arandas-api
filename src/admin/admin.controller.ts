@@ -1,6 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { CreateAdminDto } from './dto/createAdmin.dto';
 import { AdminService } from './admin.service';
+import { EditAdminDto } from './dto/editAdmin.dto';
 
 @Controller('admin')
 export class AdminController {
@@ -9,5 +10,9 @@ export class AdminController {
   @Post()
   async create(@Body() admin: CreateAdminDto) {
     return this.adminService.createAdmin(admin);
+  }
+  @Post('/edit')
+  async edit(@Body() editAdmin: EditAdminDto) {
+    return this.adminService.editAdmin(editAdmin);
   }
 }
