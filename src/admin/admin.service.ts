@@ -1,4 +1,4 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import { CreateAdminDto } from './dto/createAdmin.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -27,6 +27,13 @@ export class AdminService {
   }
 
   async editAdmin(editAdmin: EditAdminDto): Promise<Admin> {
+    if (editAdmin.actualPassword && editAdmin.password) {
+      if (await this.hashService.comparePassword(editAdmin.id, editAdmin.actualPassword)) {
+        editAdmin.password = await this.hashService.hashPassword(editAdmin.password);
+      } else {
+        throw new BadRequestException('Incorrect password');
+      }
+    }
     return await this.adminModel.findByIdAndUpdate(editAdmin.id, editAdmin);
   }
 }

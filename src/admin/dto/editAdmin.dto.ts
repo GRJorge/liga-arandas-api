@@ -17,5 +17,5 @@ export class EditAdminDto {
   @IsString()
   @MinLength(6)
   @IsOptional()
-  newPassword?: string;
+  password?: string;
 }
