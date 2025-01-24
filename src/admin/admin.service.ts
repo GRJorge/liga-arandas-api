@@ -40,4 +40,8 @@ export class AdminService {
   async deleteAdmin(id: string): Promise<Admin> {
     return await this.adminModel.findByIdAndDelete(id);
   }
+
+  async getAdminByEmail(email: string): Promise<Admin> {
+    return await this.adminModel.findOne({ email });
+  }
 }
