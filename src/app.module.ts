@@ -5,6 +5,9 @@ import { AppService } from './app.service';
 import { env } from 'process';
 import { Connection } from 'mongoose';
 import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
+import { HashService } from './hash/hash.service';
+import { HashModule } from './hash/hash.module';
 
 @Module({
   imports: [
@@ -14,8 +17,10 @@ import { AdminModule } from './admin/admin.module';
       },
     }),
     AdminModule,
+    AuthModule,
+    HashModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, HashService],
 })
 export class AppModule {}
