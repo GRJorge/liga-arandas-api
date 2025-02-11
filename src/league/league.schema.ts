@@ -8,7 +8,7 @@ export class League {
   _id: string;
 
   @Prop({ unique: true })
-  logo: string;
+  logoUrl: string;
 
   @Prop({ unique: true })
   name: string;
