@@ -8,6 +8,7 @@ import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { HashService } from './hash/hash.service';
 import { HashModule } from './hash/hash.module';
+import { LeagueModule } from './league/league.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { HashModule } from './hash/hash.module';
     AdminModule,
     AuthModule,
     HashModule,
+    LeagueModule,
   ],
   controllers: [AppController],
   providers: [AppService, HashService],
