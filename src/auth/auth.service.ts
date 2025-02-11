@@ -22,9 +22,9 @@ export class AuthService {
     } else if (!(await this.hashService.compare(loginData.password, admin.password))) {
       throw new BadRequestException('Incorrect password');
     } else {
-      const payload = { id: admin._id.toString(), email: loginData.email };
+      const payload = { id: admin._id.toString(), email: loginData.email, super: admin.super };
 
-      return { accessToken: await this.jwtService.signAsync(payload, { secret: env.SECRET, expiresIn: loginData.keep ? '30 days' : '1 day' }) };
+      return { accessToken: await this.jwtService.signAsync(payload, { secret: env.SECRET }) };
     }
   }
 }
