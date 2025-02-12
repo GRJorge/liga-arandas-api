@@ -22,7 +22,7 @@ export class AuthService {
     } else if (!(await this.hashService.compare(loginData.password, admin.password))) {
       throw new BadRequestException('Incorrect password');
     } else {
-      const payload = { id: admin._id.toString(), email: loginData.email, super: admin.super };
+      const payload = { id: admin._id.toString(), email: loginData.email };
 
       return { accessToken: await this.jwtService.signAsync(payload, { secret: env.SECRET }) };
     }
