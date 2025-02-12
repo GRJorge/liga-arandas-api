@@ -15,8 +15,4 @@ export class CreateAdminDto {
   @IsNotEmpty()
   @MinLength(6)
   password: string;
-
-  @IsBoolean()
-  @IsNotEmpty()
-  super: boolean;
 }

@@ -18,8 +18,4 @@ export class EditAdminDto {
   @MinLength(6)
   @IsOptional()
   password?: string;
-
-  @IsBoolean()
-  @IsOptional()
-  super?: boolean;
 }
