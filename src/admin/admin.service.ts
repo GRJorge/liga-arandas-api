@@ -1,4 +1,4 @@
-import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateAdminDto } from './dto/createAdmin.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -22,7 +22,7 @@ export class AdminService {
         const duplicateField = Object.keys(error.keyValue)[0];
         throw new ConflictException(`${duplicateField} is already in use`);
       }
-      throw error;
+      throw InternalServerErrorException;
     }
   }
 
