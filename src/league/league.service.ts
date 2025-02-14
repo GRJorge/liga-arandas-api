@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { League } from './league.schema';
 import { Model } from 'mongoose';
 import { CreateLeagueDto } from './dto/createLeague.dto';
+import { GetLeagueDto } from './dto/getLeague.dto';
 
 @Injectable()
 export class LeagueService {
@@ -15,5 +16,8 @@ export class LeagueService {
       if (error.code === 11000) throw new BadRequestException('League already exists');
       throw new InternalServerErrorException();
     }
+  }
+  async get(leagueQuerys: GetLeagueDto): Promise<League[]> {
+    return await this.leagueModel.find(leagueQuerys);
   }
 }
