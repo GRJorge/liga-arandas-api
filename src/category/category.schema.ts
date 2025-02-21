@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Schema as MongooseSchema } from 'mongoose';
 import { League } from 'src/league/league.schema';
 
 export type CategoryDocument = HydratedDocument<Category>;
@@ -11,8 +11,8 @@ export class Category {
   @Prop({ unique: true })
   name: string;
 
-  @Prop({ ref: 'League' })
-  league: League;
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'League' })
+  league: MongooseSchema.Types.ObjectId;
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category);
