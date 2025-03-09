@@ -10,6 +10,7 @@ import { HashService } from './hash/hash.service';
 import { HashModule } from './hash/hash.module';
 import { LeagueModule } from './league/league.module';
 import { CategoryModule } from './category/category.module';
+import { TeamModule } from './team/team.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { CategoryModule } from './category/category.module';
     HashModule,
     LeagueModule,
     CategoryModule,
+    TeamModule,
   ],
   controllers: [AppController],
   providers: [AppService, HashService],
