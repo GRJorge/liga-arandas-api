@@ -8,3 +8,12 @@ export const imageStorage = {
     },
   }),
 };
+
+export const shieldStorage = {
+  storage: diskStorage({
+    destination: './uploads/shields',
+    filename(req, file, callback) {
+      callback(null, `shield-${Date.now()}-${file.originalname}`);
+    },
+  }),
+};

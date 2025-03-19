@@ -12,8 +12,6 @@ export class CreateTeamDto {
   @IsNotEmpty()
   shortName: string;
 
-  @IsString()
-  @IsNotEmpty()
   shield: string;
 
   @IsString()
