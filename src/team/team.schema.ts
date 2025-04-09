@@ -21,6 +21,9 @@ export class Team {
 
   @Prop({ default: true })
   active: boolean;
+
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'League' })
+  league: MongooseSchema.Types.ObjectId;
 }
 
 export const TeamSchema = SchemaFactory.createForClass(Team);

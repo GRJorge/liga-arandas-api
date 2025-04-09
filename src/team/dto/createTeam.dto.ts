@@ -21,4 +21,8 @@ export class CreateTeamDto {
   @IsBoolean()
   @IsOptional()
   active?: boolean;
+
+  @IsString()
+  @IsNotEmpty()
+  league: string;
 }
